@@ -30,12 +30,15 @@ export class ProductsComponent {
   ];
 
   product : Product = {} as Product;
+  products : Product[] = [];
 
-  @Output()
-  eventEmitter = new EventEmitter()
+  saveProduct(){
 
-  sendCategories(){
-    this.eventEmitter.emit();
+    this.product.id = this.products.length + 1;
+    this.products.push(this.product);
+    this.product = {} as Product;
+
+    console.log("Salvando producto : " + this.products.length)
   }
 
 }

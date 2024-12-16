@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Category } from 'src/app/interfaces/category';
 import { Product } from 'src/app/interfaces/product';
 
@@ -14,8 +14,11 @@ export class ProductComponent {
   @Input()
   product ?: Product;
 
+  @Output()
+  saveEmitter = new EventEmitter()
+
   save(){
-    console.log(this.product);
+      this.saveEmitter.emit();
   }
 
 }
